@@ -4,9 +4,10 @@
 
 IMAGE="$(mktemp).png"
 # Use system default sans font
-FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match sans -f "%{family}\n")/ { print a[NR-1]; exit }")"
+#FONT="$(convert -list font | awk "{ a[NR] = \$2 } /family: $(fc-match sans -f "%{family}\n")/ { print a[NR-1]; exit }")"
 # Set your own font. List with "convert list font" in a terminal
 #FONT="Noto-Sans"
+FONT=SFNS-Display-Thin
 
 # get path where the script is located to find the lock icon
 pushd $(dirname $0) > /dev/null
@@ -17,7 +18,7 @@ popd > /dev/null
 TEXT="Type password to unlock"
 case $LANG in
     de_* ) TEXT="Bitte Passwort eingeben" ;; # Deutsch
-    en_* ) TEXT="Type password to unlock" ;; # English
+    en_* ) TEXT="Enter password to unlock" ;; # English
     es_* ) TEXT="Ingrese su contraseña" ;; # Española
     fr_* ) TEXT="Entrez votre mot de passe" ;; # Français
     pl_* ) TEXT="Podaj hasło" ;; # Polish
